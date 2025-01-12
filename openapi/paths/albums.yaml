@@ -1,0 +1,54 @@
+get:
+  operationId: getAlbums
+  summary: Получить список альбомов
+  tags:
+    - Albums
+  parameters:
+    - name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+    - name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: artistId
+      in: query
+      schema:
+        type: string
+        description: Фильтр по ID исполнителя
+  responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/Album.yaml"
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+post:
+  operationId: createAlbum
+  summary: Добавить новый альбом
+  tags:
+    - Albums
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../components/schemas/Album.yaml"
+  responses:
+    "201":
+      description: Альбом успешно создан
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа

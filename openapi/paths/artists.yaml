@@ -1,0 +1,49 @@
+get:
+  operationId: getArtists
+  summary: Получить список исполнителей
+  tags:
+    - Artists
+  parameters:
+    - name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+    - name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+  responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/Artist.yaml"
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+post:
+  operationId: createArtist
+  summary: Добавить нового исполнителя
+  tags:
+    - Artists
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../components/schemas/Artist.yaml"
+  responses:
+    "201":
+      description: Исполнитель успешно создан
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа

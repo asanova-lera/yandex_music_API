@@ -1,0 +1,54 @@
+get:
+  operationId: getPlaylists
+  summary: Получить список плейлистов
+  tags:
+    - Playlists
+  parameters:
+    - name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+    - name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+    - name: userId
+      in: query
+      schema:
+        type: string
+        description: Фильтр по ID пользователя
+  responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/Playlist.yaml"
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+post:
+  operationId: createPlaylist
+  summary: Создать новый плейлист
+  tags:
+    - Playlists
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../components/schemas/Playlist.yaml"
+  responses:
+    "201":
+      description: Плейлист успешно создан
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа

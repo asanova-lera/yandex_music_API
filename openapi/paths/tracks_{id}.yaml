@@ -1,0 +1,24 @@
+get:
+  operationId: getTrackById
+  summary: Получить трек по ID
+  tags:
+    - Tracks
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/Track.yaml"
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "404":
+      description: Трек не найден

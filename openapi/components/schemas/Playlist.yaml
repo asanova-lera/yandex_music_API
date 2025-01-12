@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Уникальный идентификатор плейлиста
+  title:
+    type: string
+    description: Название плейлиста
+  description:
+    type: string
+    description: Описание плейлиста
+  owner:
+    $ref: "./User.yaml"
+  tracks:
+    type: array
+    items:
+      $ref: "./Track.yaml"
+  isPublic:
+    type: boolean
+    description: Публичный ли плейлист
+required:
+  - id
+  - title
+  - owner

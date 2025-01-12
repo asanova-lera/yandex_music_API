@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Уникальный идентификатор альбома
+  title:
+    type: string
+    description: Название альбома
+  artist:
+    $ref: "./Artist.yaml"
+  releaseYear:
+    type: integer
+    description: Год выпуска альбома
+  tracks:
+    type: array
+    items:
+      $ref: "./Track.yaml"
+  coverUrl:
+    type: string
+    description: URL обложки альбома
+required:
+  - id
+  - title
+  - releaseYear

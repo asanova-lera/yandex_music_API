@@ -1,0 +1,58 @@
+post:
+  operationId: addTrackToPlaylist
+  summary: Добавить трек в плейлист
+  tags:
+    - Playlists
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            trackId:
+              type: string
+          required:
+            - trackId
+  responses:
+    "200":
+      description: Трек добавлен в плейлист
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа
+    "404":
+      description: Плейлист или трек не найден
+delete:
+  operationId: removeTrackFromPlaylist
+  summary: Удалить трек из плейлиста
+  tags:
+    - Playlists
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: trackId
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    "204":
+      description: Трек удален из плейлиста
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа
+    "404":
+      description: Плейлист или трек не найден

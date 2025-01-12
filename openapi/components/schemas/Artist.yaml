@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Уникальный идентификатор исполнителя
+  name:
+    type: string
+    description: Имя исполнителя
+  description:
+    type: string
+    description: Описание исполнителя
+  genres:
+    type: array
+    items:
+      type: string
+  albums:
+    type: array
+    items:
+      $ref: "./Album.yaml"
+required:
+  - id
+  - name

@@ -1,0 +1,72 @@
+get:
+  operationId: getAlbumById
+  summary: Получить альбом по ID
+  tags:
+    - Albums
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/Album.yaml"
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "404":
+      description: Альбом не найден
+put:
+  operationId: updateAlbum
+  summary: Обновить данные альбома
+  tags:
+    - Albums
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../components/schemas/Album.yaml"
+  responses:
+    "200":
+      description: Данные альбома обновлены
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа
+    "404":
+      description: Альбом не найден
+delete:
+  operationId: deleteAlbum
+  summary: Удалить альбом
+  tags:
+    - Albums
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    "204":
+      description: Альбом успешно удален
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа
+    "404":
+      description: Альбом не найден

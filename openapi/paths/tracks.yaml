@@ -1,0 +1,49 @@
+get:
+  operationId: getTracks
+  summary: Получить список треков
+  tags:
+    - Tracks
+  parameters:
+    - name: limit
+      in: query
+      schema:
+        type: integer
+        default: 20
+    - name: offset
+      in: query
+      schema:
+        type: integer
+        default: 0
+  responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/Track.yaml"
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+post:
+  operationId: createTrack
+  summary: Добавить новый трек
+  tags:
+    - Tracks
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../components/schemas/Track.yaml"
+  responses:
+    "201":
+      description: Трек успешно создан
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа

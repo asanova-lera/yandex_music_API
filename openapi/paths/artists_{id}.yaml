@@ -1,0 +1,72 @@
+get:
+  operationId: getArtistById
+  summary: Получить исполнителя по ID
+  tags:
+    - Artists
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            $ref: "../components/schemas/Artist.yaml"
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "404":
+      description: Исполнитель не найден
+put:
+  operationId: updateArtist
+  summary: Обновить данные исполнителя
+  tags:
+    - Artists
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../components/schemas/Artist.yaml"
+  responses:
+    "200":
+      description: Данные исполнителя обновлены
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа
+    "404":
+      description: Исполнитель не найден
+delete:
+  operationId: deleteArtist
+  summary: Удалить исполнителя
+  tags:
+    - Artists
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    "204":
+      description: Исполнитель успешно удален
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа
+    "404":
+      description: Исполнитель не найден
