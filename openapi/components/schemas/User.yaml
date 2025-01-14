@@ -9,10 +9,11 @@ properties:
   email:
     type: string
     format: email
-  playlists:
+  playlistIds:
     type: array
     items:
-      $ref: "./Playlist.yaml"
+      type: string
+    description: Список ID плейлистов пользователя
 required:
   - id
   - username

@@ -1,0 +1,26 @@
+get:
+  operationId: getAlbumTracks
+  summary: Получить треки альбома
+  tags:
+    - Albums
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/Track.yaml"
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "404":
+      description: Альбом не найден

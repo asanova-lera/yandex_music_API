@@ -24,7 +24,7 @@ get:
       description: Исполнитель не найден
 put:
   operationId: updateArtist
-  summary: Обновить данные исполнителя
+  summary: Обновить исполнителя
   tags:
     - Artists
   parameters:
@@ -41,7 +41,7 @@ put:
           $ref: "../components/schemas/Artist.yaml"
   responses:
     "200":
-      description: Данные исполнителя обновлены
+      description: Исполнитель обновлен
     "400":
       description: Неверный запрос
     "401":

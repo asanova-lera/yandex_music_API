@@ -14,6 +14,29 @@ get:
       schema:
         type: integer
         default: 0
+    - name: query
+      in: query
+      schema:
+        type: string
+        description: Поисковый запрос
+    - name: genre
+      in: query
+      schema:
+        type: string
+        description: Фильтр по жанру
+    - name: sort
+      in: query
+      schema:
+        type: string
+        enum: [name]
+        description: Поле для сортировки
+    - name: order
+      in: query
+      schema:
+        type: string
+        enum: [asc, desc]
+        default: asc
+        description: Порядок сортировки
   responses:
     "200":
       description: Успешный запрос
@@ -29,7 +52,7 @@ get:
       description: Не авторизован
 post:
   operationId: createArtist
-  summary: Добавить нового исполнителя
+  summary: Создать исполнителя
   tags:
     - Artists
   requestBody:
@@ -40,7 +63,7 @@ post:
           $ref: "../components/schemas/Artist.yaml"
   responses:
     "201":
-      description: Исполнитель успешно создан
+      description: Исполнитель создан
     "400":
       description: Неверный запрос
     "401":

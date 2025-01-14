@@ -13,10 +13,11 @@ properties:
     type: array
     items:
       type: string
-  albums:
+  albumIds:
     type: array
     items:
-      $ref: "./Album.yaml"
+      type: string
+    description: Список ID альбомов исполнителя
 required:
   - id
   - name

@@ -22,3 +22,51 @@ get:
       description: Не авторизован
     "404":
       description: Трек не найден
+put:
+  operationId: updateTrack
+  summary: Обновить трек
+  tags:
+    - Tracks
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../components/schemas/Track.yaml"
+  responses:
+    "200":
+      description: Трек обновлен
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа
+    "404":
+      description: Трек не найден
+delete:
+  operationId: deleteTrack
+  summary: Удалить трек
+  tags:
+    - Tracks
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    "204":
+      description: Трек успешно удален
+    "401":
+      description: Не авторизован
+    "403":
+      description: Нет прав доступа
+    "404":
+      description: Трек не найден

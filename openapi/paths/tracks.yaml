@@ -14,6 +14,37 @@ get:
       schema:
         type: integer
         default: 0
+    - name: artistId
+      in: query
+      schema:
+        type: string
+    - name: albumId
+      in: query
+      schema:
+        type: string
+    - name: query
+      in: query
+      schema:
+        type: string
+        description: Поисковый запрос
+    - name: genre
+      in: query
+      schema:
+        type: string
+        description: Фильтр по жанру
+    - name: sort
+      in: query
+      schema:
+        type: string
+        enum: [title, releaseDate, duration]
+        description: Поле для сортировки
+    - name: order
+      in: query
+      schema:
+        type: string
+        enum: [asc, desc]
+        default: asc
+        description: Порядок сортировки
   responses:
     "200":
       description: Успешный запрос

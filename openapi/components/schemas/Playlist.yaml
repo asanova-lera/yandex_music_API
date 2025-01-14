@@ -9,16 +9,18 @@ properties:
   description:
     type: string
     description: Описание плейлиста
-  owner:
-    $ref: "./User.yaml"
-  tracks:
+  ownerId:
+    type: string
+    description: ID владельца плейлиста
+  trackIds:
     type: array
     items:
-      $ref: "./Track.yaml"
+      type: string
+    description: Список ID треков в плейлисте
   isPublic:
     type: boolean
     description: Публичный ли плейлист
 required:
   - id
   - title
-  - owner
+  - ownerId

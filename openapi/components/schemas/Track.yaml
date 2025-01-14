@@ -8,10 +8,12 @@ properties:
     type: string
     description: Название трека
     example: "Bohemian Rhapsody"
-  artist:
-    $ref: "./Artist.yaml"
-  album:
-    $ref: "./Album.yaml"
+  artistId:
+    type: string
+    description: ID исполнителя
+  albumId:
+    type: string
+    description: ID альбома
   duration:
     type: integer
     description: Длительность трека в секундах
@@ -30,3 +32,5 @@ required:
   - id
   - title
   - duration
+  - artistId
+  - albumId

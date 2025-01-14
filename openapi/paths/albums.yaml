@@ -19,6 +19,29 @@ get:
       schema:
         type: string
         description: Фильтр по ID исполнителя
+    - name: query
+      in: query
+      schema:
+        type: string
+        description: Поисковый запрос
+    - name: year
+      in: query
+      schema:
+        type: integer
+        description: Фильтр по году выпуска
+    - name: sort
+      in: query
+      schema:
+        type: string
+        enum: [title, releaseYear]
+        description: Поле для сортировки
+    - name: order
+      in: query
+      schema:
+        type: string
+        enum: [asc, desc]
+        default: asc
+        description: Порядок сортировки
   responses:
     "200":
       description: Успешный запрос

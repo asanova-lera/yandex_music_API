@@ -6,19 +6,22 @@ properties:
   title:
     type: string
     description: Название альбома
-  artist:
-    $ref: "./Artist.yaml"
+  artistId:
+    type: string
+    description: ID исполнителя
   releaseYear:
     type: integer
     description: Год выпуска альбома
-  tracks:
+  trackIds:
     type: array
     items:
-      $ref: "./Track.yaml"
+      type: string
+    description: Список ID треков в альбоме
   coverUrl:
     type: string
     description: URL обложки альбома
 required:
   - id
   - title
+  - artistId
   - releaseYear

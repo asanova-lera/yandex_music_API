@@ -1,0 +1,26 @@
+get:
+  operationId: getArtistAlbums
+  summary: Получить альбомы исполнителя
+  tags:
+    - Artists
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Успешный запрос
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../components/schemas/Album.yaml"
+    "400":
+      description: Неверный запрос
+    "401":
+      description: Не авторизован
+    "404":
+      description: Исполнитель не найден

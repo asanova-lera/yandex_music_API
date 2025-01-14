@@ -36,10 +36,16 @@ paths:
     $ref: "./paths/artists.yaml"
   /artists/{id}:
     $ref: "./paths/artists_{id}.yaml"
+  /artists/{id}/tracks:
+    $ref: "./paths/artists_{id}_tracks.yaml"
+  /artists/{id}/albums:
+    $ref: "./paths/artists_{id}_albums.yaml"
   /albums:
     $ref: "./paths/albums.yaml"
   /albums/{id}:
     $ref: "./paths/albums_{id}.yaml"
+  /albums/{id}/tracks:
+    $ref: "./paths/albums_{id}_tracks.yaml"
   /playlists:
     $ref: "./paths/playlists.yaml"
   /playlists/{id}:
